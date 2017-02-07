@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "author": "评论瓜",
+        "content": "沙发",
+        "blog_id": 2
+    }, {
+        "id": 2,
+        "author": "评论 2",
+        "content": "板凳",
+        "blog_id": 2
+    }
+]
