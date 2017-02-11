@@ -11,7 +11,7 @@ const ModelBlog = function(form) {
     this.title = form.title || ''
     this.author = form.author || ''
     this.content = form.content || ''
-        // 生成一个 unix 时间, unix 时间是什么, 上课会说
+    // 生成一个 unix 时间, unix 时间是什么, 上课会说
     this.created_time = Math.floor(new Date() / 1000)
 }
 
@@ -36,7 +36,7 @@ var b = {
 
 b.all = function() {
     var blogs = this.data
-        // 遍历 blog，插入 comments
+    // 遍历 blog，插入 comments
     const comment = require('./comment')
     var comments = comment.all()
     for (var i = 0; i < blogs.length; i++) {
@@ -55,8 +55,8 @@ b.all = function() {
 
 b.new = function(form) {
     var m = new ModelBlog(form)
-        // console.log('new blog', form, m)
-        // 设置新数据的 id
+    // console.log('new blog', form, m)
+    // 设置新数据的 id
     var d = this.data[this.data.length - 1]
     if (d == undefined) {
         m.id = 1
@@ -65,15 +65,31 @@ b.new = function(form) {
     }
     // 把 数据 加入 this.data 数组
     this.data.push(m)
-        // 把 最新数据 保存到文件中
+    // 把 最新数据 保存到文件中
     this.save()
-        // 返回新建的数据
+    // 返回新建的数据
+    return m
+}
+
+b.detail = function(form) {
+    //显示所需要的博客内容
+    for (var i = 0; i < this.data.length; i++) {
+        console.log('detail form.id = ', form.id)
+        console.log('this.data.id : ', this.data[i].id)
+        if (form.id == this.data[i].id) {
+            var d = this.data[i]
+            console.log('detail :', d)
+            return d
+        }
+    }
+    var m = this.data
+    console.log('detail error : return alldata')
     return m
 }
 
 b.delete = function(id) {
-    console.log('b.data = ', this.data);
-    console.log('b.delete');
+    console.log('b.data = ', this.data)
+    console.log('b.delete')
 }
 
 b.save = function() {

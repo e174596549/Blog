@@ -6,7 +6,7 @@ var sendHtml = function(path, response) {
         encoding: 'utf-8'
     }
     path = 'template/' + path
-    fs.readFile(path, options, function(err, data){
+    fs.readFile(path, options, function(err, data) {
         console.log(`读取的html文件 ${path} 内容是`, data)
         response.send(data)
     })

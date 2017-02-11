@@ -40,9 +40,9 @@ registerRoutes(app, routeComment.routes)
 // 默认的端口是 80
 // 所以如果你监听 80 端口的话，浏览器就不需要输入端口了
 // 但是 1024 以下的端口是系统保留端口，需要管理员权限才能使用
-var server = app.listen(8081, function () {
-  var host = server.address().address
-  var port = server.address().port
+var server = app.listen(8081, function() {
+    var host = server.address().address
+    var port = server.address().port
 
-  console.log("应用实例，访问地址为 http://%s:%s", host, port)
+    console.log("应用实例，访问地址为 http://%s:%s", host, port)
 })
