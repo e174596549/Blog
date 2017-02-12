@@ -7,6 +7,7 @@
     width: 75%;
     box-sizing: border-box;
     display: block;
+    margin-top: 24px !important;
 }
 
 .gua-blog-cell {
@@ -29,6 +30,7 @@
 a {
     font-weight: 600;
     color: #4078c0;
+    text-decoration: none;
 }
 
 body {
@@ -37,10 +39,13 @@ body {
     line-height: 1.5;
     color: #333;
     background-color: #fff;
-    min-width: 1020px;
+    max-width: 1012px;
+    margin-right: auto;
+    margin-left: auto;
     word-wrap: break-word;
-    margin: 0;
-    margin: 8px;
+    margin-top: 24px !important;
+    padding-right: 16px !important;
+    padding-left: 16px !important;
 }
 
 label {
@@ -85,6 +90,7 @@ textarea {
     /*margin-bottom: 16px !important;*/
     display: block;
     width: 100%;
+    margin-bottom: 16px !important;
 }
 
 button {
@@ -133,4 +139,60 @@ ul {
 .blog-content-fulltext {
     margin-top: 8px !important;
     margin-bottom: 16px !important;
+}
+
+.avatar {
+    display: inline-block;
+    overflow: hidden;
+    line-height: 1;
+    vertical-align: middle;
+    width: 100% !important;
+    border-radius: 6px;
+    border-style: none;
+    /*height: 230px;*/
+}
+
+.new-user-avatar-cta {
+    font-size: 14px;
+    color: #244f79;
+    background-color: #f1f6fb;
+    border: solid 1px #d0e5f8;
+    border-radius: 3px;
+    float: right;
+    width: 75%;
+    box-sizing: border-box;
+    display: block;
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    margin-top: 5px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 24px !important;
+}
+
+.avatar-cta {
+    background-color: #fff;
+    border-bottom: solid 1px #ddd;
+    display: inline-block;
+    float: right;
+    width: 75%;
+    position: static;
+    height: 62px;
+    display: table;
+}
+
+.underline-nav-item {
+    display: table-cell;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 14px;
+    vertical-align: middle;
+    border-bottom: 2px solid transparent;
+    margin: 0px auto;
+}
+
+.underline-nav {
+    margin: 0px auto;
 }

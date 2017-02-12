@@ -40,21 +40,21 @@ var blogTemplate = function(blog) {
         </div>
         <div class="">
             <span>${author}</span> @ <time>${time}</time>
-            <button class="blog-delete">删除blog</button>
-        </div>
-        <div class="blog-comments">
-            <div class='new-comment'>
-                <input class='comment-blog-id' type=hidden value="${id}">
-                <input class='comment-author' value="">
-                <input class='comment-content' value="">
-                <button class='comment-add'>添加评论</button>
-                <button class="comment-delete">删除评论</button>
-            </div>
         </div>
     </div>
     `
     return t
 }
+// <button class="blog-delete">删除blog</button>
+// <div class="blog-comments">
+//     <div class='new-comment'>
+//         <input class='comment-blog-id' type=hidden value="${id}">
+//         <input class='comment-author' value="">
+//         <input class='comment-content' value="">
+//         <button class='comment-add'>添加评论</button>
+//         <button class="comment-delete">删除评论</button>
+//     </div>
+// </div>
 
 var insertBlogAll = function(blogs) {
     var html = ''
@@ -225,7 +225,7 @@ var __main = function() {
     bindEvents()
 
     setTimeout(function() {
-        bindDelButton()
+        //bindDelButton()
         bindShowDetailButton()
     }, 10)
 }
