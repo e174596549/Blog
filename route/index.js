@@ -21,8 +21,18 @@ var index = {
     }
 }
 
+var leo = {
+    path: '/leo',
+    method: 'get',
+    func: function(request, response) {
+        var path = 'leo.html'
+        sendHtml(path, response)
+    }
+}
+
 var routes = [
     index,
+    leo,
 ]
 
 module.exports.routes = routes
