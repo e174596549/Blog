@@ -5,4 +5,10 @@
     "created_time": 1483600648,
     "id": 1,
     "comments": []
+}, {
+    "title": "Markdown 语法测试",
+    "author": "Leo",
+    "content": "# 示例\n\n# 标题\n\n**粗体**\n\n- 缩进\n\n  - 缩进\n\n行内高亮： `markdown`\n\n按键：\n\n<kbd>CTRL</kbd>\n\n> 多层引用\n\n> > 多层引用\n\n--------\n\n> 单层引用 单层引用\n\n表格 | 表格\n-- | --\n表格 | 表格\n\n图片： ![图片](http://vip.cocode.cc/uploads/avatar/74.jpg)\n\n代码：\n\n```python\ndef dict_recursion(dict_all):\n    if isinstance(dict_all, dict):\n        for x in dict_all:\n            dict_key = x\n            dict_value = dict_all[dict_key]\n            print(\"{}:{}\".format(dict_key, dict_value))\n            dict_recursion(dict_value)\n    else:\n        return\n```",
+    "created_time": 1487005545,
+    "id": 2
 }]

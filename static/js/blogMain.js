@@ -181,11 +181,15 @@ var showDetail = function(form) {
 var insertBlogComment = function(comment) {
     console.log('comment.comment', comment.content);
     let element = eAll('.blog-title')
+    var md = new Remarkable()
+    var src = comment.content
+    var fullText = md.render(src)
     var t = `
             <div class="blog-content-fulltext">
-                ${comment.content}
+                ${fullText}
             </div>
     `
+
     for (var i = 0; i < element.length; i++) {
         if (element[i].dataset.id == comment.id) {
             console.log('element[i].parentElement.childNodes.length:', element[i].parentElement.childNodes.length)
