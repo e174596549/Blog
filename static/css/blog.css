@@ -196,3 +196,7 @@ ul {
 .underline-nav {
     margin: 0px auto;
 }
+
+.hide {
+    display: none;
+}

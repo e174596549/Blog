@@ -131,6 +131,14 @@ var appendHtml = function(element, html) {
     element.insertAdjacentHTML('beforeend', html)
 }
 
+var toggleClass = function(element, className) {
+    if (element.classList.contains(className)) {
+        element.classList.remove(className)
+    } else {
+        element.classList.add(className)
+    }
+}
+
 var bindEvents = function() {
     // 绑定发表新博客事件
     var button = e('#id-button-submit')
@@ -151,12 +159,20 @@ var bindEvents = function() {
 
 var bindShowDetailButton = function() {
     bindAll('.blog-title', 'click', function(event) {
-        //得到需要显示博客详情的id
-        var form = {
-            id: event.target.dataset.id,
+        console.log('event.target.parentElement', event.target.parentElement.querySelector('.blog-content-fulltext'))
+        var fullText = event.target.parentElement.querySelector('.blog-content-fulltext')
+        console.log('fullText = ', fullText)
+        //如果已经得到detail 那么显示或隐藏 否则发送ajax请求 获取fulltext
+        if (fullText) {
+            toggleClass(fullText, 'hide')
+        } else {
+            //得到需要显示博客详情的id
+            var form = {
+                id: event.target.dataset.id,
+            }
+            console.log('bindEvents event.target.dataset.id: ', event.target.dataset.id)
+            showDetail(form)
         }
-        console.log('bindEvents event.target.dataset.id: ', event.target.dataset.id)
-        showDetail(form)
     })
 }
 
@@ -228,10 +244,12 @@ var __main = function() {
     // 绑定事件
     bindEvents()
 
+    //window.addEventListener('load', bindShowDetailButton(), false)
+    // window.onload = bindShowDetailButton
     setTimeout(function() {
         //bindDelButton()
         bindShowDetailButton()
-    }, 10)
+    }, 50)
 }
 
 __main()
