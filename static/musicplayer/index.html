@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>musicPlayer</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="./js/util.js"></script>
+    </head>
+    <body>
+        <div class="All">
+            <div class="palyer-main">
+                <div class="page">
+                    <img type="button" name="button-ListPage" class="button-List" src="./img/Music_player_left.png">
+                    <img type="button" name="button-playingPage" class="button-playing" src="./img/Music_player_right.png">
+                </div>
+                <div class="mp3-list-location">
+                    <div class="mp3-page mp3-list ListPage" data-num=0>
+                        <div class="mp3 mp3-playing" data-path='./mp3/GARNiDELiA - 極楽浄土 (加速版).mp3' data-num=0>
+                            GARNiDELiA - 極楽浄土 (加速版)
+                        </div>
+                        <div class="mp3" data-path='./mp3/周杰伦 - 给我一首歌的时间.mp3' data-num=1>
+                            周杰伦 - 给我一首歌的时间
+                        </div>
+                        <div class="mp3" data-path='./mp3/朴树 - 那些花儿(吉他版).mp3' data-num=2>
+                            朴树 - 那些花儿(吉他版)
+                        </div>
+                    </div>
+                </div>
+                <div class="mp3-page playingPage mp3-location">
+                    <img src="./img/0.jpg" alt="" class='mp3-page mp3-picture picture-size playingPage'>
+                    <img src="./img/1.jpg" alt="" class='mp3-page mp3-picture picture-size'>
+                    <img src="./img/2.jpeg" alt="" class='mp3-page mp3-picture picture-size'>
+                </div>
+                <div class="mp3-page time playingPage">
+                    <span id="id-apan-currentTime" class="currentTime">00:00</span>
+                    <span id="id-apan-totalTime" class="totalTime">00:00</span>
+                </div>
+                <div class="bar">
+                    <img class="img-progress-bar" id="id-progress-bar" src="./img/Music_player_jindu.png">
+                </div>
+                <div class="mp3-page mp3-button playingPage">
+                    <img class="button img-button" id="id-button-pre" src="./img/Music_player_back_.png">
+                    <img class="button img-button" id="id-button-play" src='./img/Music_player_play.png'>
+                    <img class="button img-button hide" id="id-button-pause" src="./img/Music_player_play.png">
+                    <img class="button img-button" id="id-button-next" src="./img/Music_player_forward.png">
+                </div>
+            </div>
+        </div>
+        <audio id='id-audio-player' controls="controls" class="mp3-page ListPage" style="display: none;">
+            <source src="./mp3/GARNiDELiA - 極楽浄土 (加速版).mp3">
+        </audio >
+        <script src=./js/musicPlayer.js></script>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Minesweeper</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="./js/util.js"></script>
+    </head>
+    <body>
+        <div class="button-list">
+            <button type="button" id="id-button-replay" class='hide'>replay</button>
+            <button type="button" id="id-button-primary" class="level-button">初级</button>
+            <button type="button" id="id-button-middle" class="level-button">中级</button>
+            <button type="button" id="id-button-high" class="level-button">高级</button>
+            <span id="unFind-mines-number" class="hide">剩余雷数：</span>
+        </div>
+        <div class="background-image">
+            <img src="./img/20110901053221923.jpg" alt="">
+        </div>
+        <table class="draw-table" id="id-draw-table">
+            <!-- <tr class="covered">
+                <td class="mine">111</td>
+                <td>222</td>
+            </tr>
+            <tr>
+                <td>333</td>
+                <td>444</td>
+            </tr> -->
+        </table>
+        <script src="./js/minesweeper.js"></script>
+    </body>
+</html>

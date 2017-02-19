@@ -1,0 +1,52 @@
+td {
+    border-color: grey;
+    border-style: solid;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+}
+
+.draw-table {
+    margin: 0 auto;
+}
+
+.button-list {
+    text-align: center;
+}
+
+.mine9 {
+    background-image: url(../img/noun_628500.png);
+    background-size: 100% auto;
+}
+
+.mineMayBe {
+    background-image: url(../img/noun_628505.png);
+    background-size: 100% auto;
+}
+
+.mineWrong {
+    background-image: url(../img/noun_796287_cc.png);
+    background-size: 100% auto;
+}
+
+.covered {
+    background-color: grey;
+}
+
+.uncovered {
+    background-color: #EEEEEE;
+}
+
+.hide {
+    display: none;
+}
+
+.background-image {
+    text-align: center;
+}
+
+body {
+    /*-webkit-user-select: none;*/
+    /*禁用手机浏览器的用户选择功能 */
+    -moz-user-select: none;
+}
