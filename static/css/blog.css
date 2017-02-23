@@ -1,7 +1,4 @@
 .gua-blogs {
-    /*width: 300px;
-    margin: 0 auto;
-    text-align: center;*/
     padding-left: 8px !important;
     float: left !important;
     width: 75%;
@@ -134,6 +131,8 @@ ul {
     display: block;
 }
 
+.blog-body {}
+
 * {
     box-sizing: border-box;
 }
@@ -180,9 +179,17 @@ ul {
     display: inline-block;
     float: right;
     width: 75%;
+    /*margin: 0 auto;*/
     position: static;
     height: 62px;
-    display: table;
+    /*display: table;*/
+    /*display: flex;*/
+    /*justify-content: center;
+    align-items: center;*/
+}
+
+.blog-content {
+    padding: 0px 16px;
 }
 
 .underline-nav-item {
