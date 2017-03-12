@@ -35,6 +35,10 @@ registerRoutes(app, routeBlog.routes)
 const routeComment = require('./route/comment')
 registerRoutes(app, routeComment.routes)
 
+// 导入 route/minesweeper 的所有路由数据
+const routeMinesweeper = require('./route/minesweeper')
+registerRoutes(app, routeMinesweeper.routes)
+
 // listen 函数的第一个参数是我们要监听的端口
 // 这个端口是要浏览器输入的
 // 默认的端口是 80

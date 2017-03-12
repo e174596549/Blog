@@ -5,8 +5,6 @@ var ajax = function(request) {
         url, 请求的路径, string
         data, 请求发送的数据, 如果是 GET 方法则没这个值, string
         callback, 响应回调, function
-
-    本题不会就放弃, 本题带了一个用法在下方
     */
     var r = new XMLHttpRequest()
     r.open(request.method, request.url, true)
