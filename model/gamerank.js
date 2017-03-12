@@ -65,10 +65,10 @@ b.new = function(form) {
 
 }
 var sort = function(object) {
-    let sortedArr = []
-    let max = {}
-    for (let i = 0; i < object.length; i++) {
-        for (let j = 0; j < object.length - i - 1; j++) {
+    var sortedArr = []
+    var max = {}
+    for (var i = 0; i < object.length; i++) {
+        for (var j = 0; j < object.length - i - 1; j++) {
             console.log(object[i].score)
             if (object[j].score > object[j + 1].score) {
                 max = object[j]
@@ -80,7 +80,7 @@ var sort = function(object) {
     object.splice(10)
 }
 b.save = function(level) {
-    let arr = this.data[level]
+    var arr = this.data[level]
     sort(arr)
     console.log('排序后', arr);
     var s = JSON.stringify(this.data[level])
