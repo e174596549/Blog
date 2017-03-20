@@ -1,13 +1,12 @@
-<script>
-</script>
+<script></script>
 <body>
-    <h1>你好 gua</h1>
+    <h1>你好</h1>
     <img src=images/doge.gif>
     <div>
         <h1>博客详情</h1>
     </div>
     <script>
-        var ajax = function(request) {
+        var ajax = function (request) {
             /*
             request 是一个 object, 有如下属性
                 method, 请求的方法, string
@@ -20,8 +19,8 @@
             if (request.contentType !== undefined) {
                 r.setRequestHeader('Content-Type', request.contentType)
             }
-            r.onreadystatechange = function(event) {
-                if(r.readyState === 4) {
+            r.onreadystatechange = function (event) {
+                if (r.readyState === 4) {
                     request.callback(r.response)
                 }
             }
@@ -32,12 +31,12 @@
             }
         }
 
-        var blogAll = function() {
+        var blogAll = function () {
             var request = {
                 method: 'GET',
                 url: '/api/blog/all',
                 contentType: 'application/json',
-                callback: function(response) {
+                callback: function (response) {
                     console.log('响应', response)
                     var res = JSON.parse(response)
                     if (res.success) {
@@ -50,11 +49,11 @@
             ajax(request)
         }
 
-        var blogNew = function() {
+        var blogNew = function () {
             var form = {
                 title: "测试标题",
-                author: "gua",
-                content: "测试内容",
+                author: "",
+                content: "测试内容"
             }
             var data = JSON.stringify(form)
             var request = {
@@ -62,7 +61,7 @@
                 url: '/api/blog/add',
                 data: data,
                 contentType: 'application/json',
-                callback: function(response) {
+                callback: function (response) {
                     console.log('响应', response)
                     var res = JSON.parse(response)
                     if (res.success) {
@@ -74,6 +73,5 @@
             }
             ajax(request)
         }
-
     </script>
 </body>

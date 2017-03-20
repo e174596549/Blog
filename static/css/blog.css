@@ -1,4 +1,4 @@
-.gua-blogs {
+.blogs {
     padding-left: 8px !important;
     float: left !important;
     width: 75%;
@@ -7,7 +7,7 @@
     margin-top: 24px !important;
 }
 
-.gua-blog-cell {
+.blog-cell {
     display: block;
     border-radius: 3px;
     justify-content: space-between;

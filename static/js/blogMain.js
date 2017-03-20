@@ -30,7 +30,7 @@ var blogTemplate = function(blog) {
     var d = new Date(blog.created_time * 1000)
     var time = d.toLocaleString()
     var t = `
-    <div class="gua-blog-cell">
+    <div class="blog-cell">
         <div class="blog-content">
             <a class="blog-title" href="#" data-id="${id}">
                 ${title}
@@ -61,8 +61,8 @@ var insertBlogAll = function(blogs) {
         var t = blogTemplate(b)
         html += t
     }
-    // 把数据写入 .gua-blogs 中, 直接用覆盖式写入
-    var div = document.querySelector('.gua-blogs')
+    // 把数据写入 blogs 中, 直接用覆盖式写入
+    var div = document.querySelector('.blogs')
     div.innerHTML = html
 }
 
@@ -83,11 +83,6 @@ var blogAll = function() {
 }
 
 var blogNew = function(form) {
-    // var form = {
-    //     title: "测试标题",
-    //     author: "gua",
-    //     content: "测试内容",
-    // }
     var data = JSON.stringify(form)
     var request = {
         method: 'POST',
