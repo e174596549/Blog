@@ -12,8 +12,8 @@ var sendHtml = function(path, response) {
     })
 }
 
-var index = {
-    path: '/',
+var blog = {
+    path: '/blog',
     method: 'get',
     func: function(request, response) {
         var path = 'blog_index.html'
@@ -30,9 +30,19 @@ var leo = {
     }
 }
 
+var index = {
+    path: '/',
+    method: 'get',
+    func: function(request, response) {
+        var path = 'index.html'
+        sendHtml(path, response)
+    }
+}
+
 var routes = [
-    index,
+    blog,
     leo,
+    index
 ]
 
 module.exports.routes = routes

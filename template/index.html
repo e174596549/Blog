@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="A collaborative series of mixes designed for listening while programming (compatible with other activities)">
+        <meta name="author" content="Datassette">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Leo Liu</title>
+        <style media="screen">
+            .selected {
+                color: #00303e;
+                background: #0096c1;
+            }
+
+            .white {
+                color: #f8f8f2;
+            }
+
+            .grey {
+                color: #999999;
+            }
+
+            .blue {
+                color: #66d9ef;
+            }
+
+            .green {
+                color: #a6e22e;
+            }
+
+            .orange {
+                color: #fd971f;
+            }
+
+            .fuschia {
+                color: #ec007c;
+            }
+
+            .yellow {
+                color: #efe158;
+            }
+
+            .purple {
+                color: #ae81ff;
+            }
+            @font-face {
+                font-family: 'Conso';
+                src: url("Conso.woff") format("woff"), url("Conso.ttf") format("truetype");
+                font-style: normal;
+                font-stretch: normal;
+            }
+            @font-face {
+                font-family: 'Conso';
+                src: url("Conso-Italic.woff") format("woff"), url("Conso-Italic.ttf") format("truetype");
+                font-style: italic;
+                font-stretch: normal;
+            }
+            article,
+            details,
+            footer,
+            header,
+            nav,
+            section {
+                display: block;
+            }
+
+            ol,
+            ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            nav ol,
+            nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            img {
+                border: 0;
+                -ms-interpolation-mode: bicubic;
+            }
+            svg:not(:root) {
+                overflow: hidden;
+            }
+
+            html {
+                font-size: 100%;
+                overflow-y: scroll;
+                -webkit-overflow-scrolling: touch;
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+            }
+
+            body {
+                margin: 0;
+                font-size: 13px;
+                line-height: 18px;
+                background: #00303e;
+            }
+
+            body,
+            button,
+            input,
+            pre,
+            select,
+            textarea {
+                font-family: 'Conso', Courier New, monospace;
+                color: #f8f8f2;
+            }
+
+            a {
+                color: #ec007c;
+                text-decoration: none;
+            }
+            a:hover {
+                background-color: #0096c1;
+                color: #00303e;
+            }
+
+            pre {
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+            }
+
+            .container {
+                display: block;
+                overflow: hidden;
+            }
+            .container div {
+                display: block;
+            }
+
+            .pad {
+                padding: 0 16px;
+            }
+
+            .purple-link {
+                color: #ae81ff;
+            }
+            .purple-link:hover {
+                color: #00303e;
+            }
+
+            .blue-link {
+                color: #66d9ef;
+            }
+            .blue-link:hover {
+                color: #00303e;
+            }
+
+            .orange-link {
+                color: #fd971f;
+            }
+            .orange-link:hover {
+                color: #00303e;
+            }
+
+            .indent {
+                display: block;
+                padding-left: 33px;
+            }
+
+            .string-indent {
+                display: block;
+                text-indent: -29px;
+                padding-left: 58px;
+            }
+
+            .oneliner {
+                display: inline-block;
+                max-height: 20px;
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+                float: left;
+                white-space: nowrap;
+            }
+
+            .multi-column {
+                -webkit-column-count: 3;
+                -moz-column-count: 3;
+                column-count: 3;
+            }
+
+            .rule {
+                border-top: 2px dotted #999999;
+                margin: 0;
+            }
+
+            form {
+                position: relative;
+                pointer-events: none;
+            }
+            form input[type="image"] {
+                pointer-events: all;
+                cursor: pointer;
+                opacity: 0;
+                width: 146px;
+                position: absolute;
+                z-index: 1000;
+            }
+
+            .fold {
+                color: #00303e;
+                background: #ae81ff;
+            }
+
+            .noselect {
+                -webkit-user-select: none;
+                -moz-user-select: -moz-none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            .playerControls {
+                cursor: default;
+            }
+            .playerControls .active {
+                color: #66d9ef;
+                cursor: pointer;
+            }
+
+            /*
+6 column system
+3 sizes: sm md lg
+*/
+            @media (min-width: 0px) {
+                .sm-l {
+                    float: left;
+                }
+
+                .sm-r {
+                    float: right;
+                }
+
+                .sm-n {
+                    float: none;
+                }
+
+                .sm-1 {
+                    width: 16.66%;
+                }
+
+                .sm-2 {
+                    width: 33.33%;
+                }
+
+                .sm-3 {
+                    width: 50.00%;
+                }
+
+                .sm-4 {
+                    width: 66.66%;
+                }
+
+                .sm-5 {
+                    width: 83.33%;
+                }
+
+                .sm-6 {
+                    width: 100.0%;
+                }
+
+                .multi-column {
+                    -webkit-column-count: 1;
+                    -moz-column-count: 1;
+                    column-count: 1;
+                }
+            }
+            .sm-only {
+                display: none;
+            }
+            @media (max-width: 768px) {
+                body {
+                    font-size: 16px;
+                    line-height: 20px;
+                }
+
+                .oneliner {
+                    max-height: 30px;
+                }
+
+                .sm-off {
+                    display: none;
+                }
+
+                .sm-only {
+                    display: inline;
+                }
+            }
+            @media (min-width: 769px) {
+                .md-l {
+                    float: left;
+                }
+
+                .md-r {
+                    float: right;
+                }
+
+                .md-n {
+                    float: none;
+                }
+
+                .md-1 {
+                    width: 16.66%;
+                }
+
+                .md-2 {
+                    width: 33.33%;
+                }
+
+                .md-3 {
+                    width: 50.00%;
+                }
+
+                .md-4 {
+                    width: 66.66%;
+                }
+
+                .md-5 {
+                    width: 83.33%;
+                }
+
+                .md-6 {
+                    width: 100.0%;
+                }
+
+                .multi-column {
+                    -webkit-column-count: 2;
+                    -moz-column-count: 2;
+                    column-count: 2;
+                }
+            }
+            @media (min-width: 1024px) {
+                .lg-l {
+                    float: left;
+                }
+
+                .lg-r {
+                    float: right;
+                }
+
+                .lg-n {
+                    float: none;
+                }
+
+                .lg-1 {
+                    width: 16.66%;
+                }
+
+                .lg-2 {
+                    width: 33.33%;
+                }
+
+                .lg-3 {
+                    width: 50.00%;
+                }
+
+                .lg-4 {
+                    width: 66.66%;
+                }
+
+                .lg-5 {
+                    width: 83.33%;
+                }
+
+                .lg-6 {
+                    width: 100.0%;
+                }
+
+                .multi-column {
+                    -webkit-column-count: 3;
+                    -moz-column-count: 3;
+                    column-count: 3;
+                }
+            }
+
+            /*# sourceMappingURL=style.css.map */
+
+        </style>
+    </head>
+    <body>
+        <div class="container sm-l sm-6 md-3 lg-3">
+            <div class="pad">
+                <br>
+                <span class="grey oneliner sm-off">// Introduction
+                    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+                <span class="sm-off"><br><br></span>
+                <span class="blue">
+                    <em>function</em>
+                </span>
+                <span class="green">practiceProgrammingSkills</span>(<span class="orange">
+                    <em>task</em>
+                </span>)
+                <span class="sm-off">
+                    <br>{<br>
+                    <span class="string-indent">
+                        task
+                        <span class="fuschia">=</span>
+                        (task
+                        <span class="fuschia">===</span>
+                        <span class="purple">undefined</span>) ?
+                        <span class="yellow">'programming'</span>
+                        : task;<br>
+                    </span>
+                    <span class="string-indent">
+                        <span class="fuschia">return</span>
+                        <span class="yellow">' Welcome to Leo's personal homepage. '</span>
+                        <span class="fuschia">+</span>
+                        task
+                        <span class="fuschia">+</span>
+                        <span class="yellow">' To do more, to get better, to learn more.'</span>;<br>
+                    </span>
+                    }<br>
+                </span>
+                <span class="sm-only">
+                    {<span class="fold">...</span>}<br>
+                </span>
+            </div>
+        </div>
+
+        <!-- page content -->
+        <div class="container md-r sm-6 md-3 md-l lg-3 lg-r">
+            <div class="pad">
+                &nbsp;<br>
+                <span class="grey oneliner">// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br>
+                <br>
+                <span class="green">03: Minesweeper</span><br>
+                <br>
+                <!-- audio player -->
+                <!-- <audio src="http://datashat.net/music_for_programming_47-abe_mangger.mp3" id="player">
+                    Your browser does not support the &lt;<span class="fuschia">audio</span>&gt; tag.<br><br>
+                </audio> -->
+                <div class="playerControls noselect">
+                    <pre class="grey" id="player_time"></pre>
+                    <a class="grey active" id="player_playpause" href="/Minesweeper/index.html">[PLAY]</a>
+                    <!-- <pre class="grey" id="player_stop">[STOP]</pre>
+                    <pre class="grey" id="player_rew">[-30s]</pre>
+                    <pre class="grey" id="player_ffw">[+30s]</pre><br> -->
+                    <br>
+                    <br>
+                </div>
+                <!-- <a href="http://datashat.net/music_for_programming_47-abe_mangger.mp3">music_for_programming_47-abe_mangger.mp3</a>
+                (259mb)<br> -->
+                <div id="id-minesweeper-rank" class="multi-column"></div>
+                <br>
+                <span class="grey oneliner">
+                    // Friends of the
+                    chain:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                </span>
+                <br>
+                <a href="http://taoer.info/blog">http://taoer.info/blog</a>
+                <br>
+                &nbsp;
+            </div>
+        </div>
+
+        <!-- menu -->
+        <div class="container sm-l sm-6 md-3 md-r lg-3 lg-l">
+            <div class="pad">
+                &nbsp;<br>
+                <span class="grey oneliner">// Repositories
+                    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br>
+                <br>
+                <div id="episodes" class="multi-column">
+                    <a href="https://github.com/e174596549/Blog">01: Blog</a><br>
+                    <a href="https://github.com/e174596549/Crawler">02: Crawler</a><br>
+                    <a href="https://github.com/e174596549/Minesweeper">03: Minesweeper</a><br>
+                    <a href="https://github.com/e174596549/MusicPlayer">04: MusicPlayer</a><br>
+                    <a href="https://github.com/e174596549/MarkdownEditor-react-">05: MarkdownEditor</a><br>
+                    <a href="https://github.com/e174596549/Utils">06: Utils</a><br>
+                    <a href="https://github.com/e174596549/vuetest">07: vuetest</a><br>
+                    <a href="https://github.com/e174596549/requirejs-test">08: requirejs-test</a><br>
+                    <a href="https://github.com/e174596549/Screeps">09: Screeps</a><br>
+                    <a href="https://github.com/e174596549/pixi">10: pixi</a><br>
+                    <a href="https://github.com/e174596549/SudokuInputTool">11: SudokuInputTool</a><br>
+                    <br>
+                </div>
+            </div>
+            <div class="pad">
+                <br>
+                <span class="grey oneliner">// Meta --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span><br>
+                <br>
+                <a href="https://github.com/e174596549/" class="purple-link">[GitHub]</a>
+                <a href="https://twitter.com/LY6819" class="purple-link">[Twitter]</a>
+                <!-- <a href="img/folder.jpg" class="purple-link">[folder.jpg]</a>
+                <a href="rss.php" class="purple-link">[RSS]</a>
+                <a href="monokai_datashat_edit.tmTheme" class="purple-link">[SublimeText.tmTheme]</a> -->
+                <br>
+                <a href="http://weibo.com/ly68198096" class="blue-link">[WeiBo]</a>
+                <a href="https://www.zhihu.com/people/liu-yuan-39-9/activities" class="blue-link">[ZhiHu]</a>
+                <a href="http://tieba.baidu.com/home/main?id=70d3dac0d1bdced2d4bbb405" class="blue-link">[TieBa]</a>
+                <br>
+                <a href="/img/alipay.jpg" class="orange-link">[Alipay]</a>
+                <a href="/img/pay.weixin.jpeg" class="orange-link">[Pay.weixin]</a>
+                <br>&nbsp;
+            </div>
+        </div>
+        <script type="text/javascript">
+            let time = document.querySelector('#player_time')
+            time.innerHTML = `${new Date().toLocaleDateString()}`
+
+            var rankAll = function () {
+                // var form = {     title: "测试标题",     author: "leo",     content: "测试内容", }
+                var request = {
+                    method: 'get',
+                    url: '/game/minesweeper/all',
+                    contentType: 'application/json',
+                    callback: function (response) {
+                        //console.log('响应', response)
+                        var res = JSON.parse(response)
+                        //console.log('收到后端的响应是：', res)
+                        t = ''
+                        for (var i = 0; i < 3; i++) {
+                            if (i === 0) {
+                                t += `<br> Primary Rank: <br><br>`
+                            }
+                            if (i === 1) {
+                                t += `<br> Middle Rank: <br><br>`
+                            }
+                            if (i === 2) {
+                                t += `<br> High Rank: <br><br>`
+                            }
+                            for (var j = 0; j < res[i].length; j++) {
+                                t += `
+            NO${j + 1}: ${res[i][j].player}   ${res[i][j].score / 1000}s <br>`
+                            }
+                        }
+                        console.log(t);
+                        document.querySelector('#id-minesweeper-rank').insertAdjacentHTML('beforeend', t)
+                    }
+                }
+                ajax(request)
+            }
+            function ajax(request) {
+                /*
+    request 是一个 object, 有如下属性
+        method, 请求的方法, string
+        url, 请求的路径, string
+        data, 请求发送的数据, 如果是 GET 方法则没这个值, string
+        callback, 响应回调, function
+    */
+                var r = new XMLHttpRequest()
+                r.open(request.method, request.url, true)
+                if (request.contentType !== undefined) {
+                    r.setRequestHeader('Content-Type', request.contentType)
+                }
+                r.onreadystatechange = function (event) {
+                    if (r.readyState === 4) {
+                        request.callback(r.response)
+                    }
+                }
+                if (request.method === 'GET') {
+                    r.send()
+                } else {
+                    r.send(request.data)
+                }
+            }
+            rankAll()
+        </script>
+    </body>
+</html>
+
+</html>
