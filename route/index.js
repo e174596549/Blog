@@ -30,6 +30,15 @@ var leo = {
     }
 }
 
+var minesweeper = {
+    path: '/minesweeper',
+    method: 'get',
+    func: function(request, response) {
+        var path = 'minesweeper.html'
+        sendHtml(path, response)
+    }
+}
+
 var index = {
     path: '/',
     method: 'get',
@@ -42,7 +51,8 @@ var index = {
 var routes = [
     blog,
     leo,
-    index
+    index,
+    minesweeper
 ]
 
 module.exports.routes = routes
