@@ -5,6 +5,11 @@ var bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
 
+app.use(function( req, res, next) {
+    console.log(req.originalUrl)
+    next()
+});
+
 // 配置静态文件目录
 app.use(express.static('static'))
 

@@ -2,7 +2,7 @@ const blog = require('../model/blog')
 
 
 var all = {
-    path: 'http://localhost:8081/api/blog/all',
+    path: '/api/blog/all',
     method: 'get',
     func: function(request, response) {
         var blogs = blog.all()
@@ -12,7 +12,7 @@ var all = {
 }
 
 var add = {
-    path: 'http://localhost:8081/api/blog/add',
+    path: '/api/blog/add',
     method: 'post',
     func: function(request, response) {
         // 浏览器发过来的数据我们一般称之为 form (表单)
@@ -34,7 +34,7 @@ var add = {
 }
 
 var detail = {
-    path: 'http://localhost:8081/api/blog/detail',
+    path: '/api/blog/detail',
     method: 'post',
     func: function(request, response) {
         // 浏览器发过来的数据我们一般称之为 form (表单)
