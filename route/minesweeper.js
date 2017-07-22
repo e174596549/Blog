@@ -1,7 +1,7 @@
 const gamerank = require('../model/gamerank')
 
 var add = {
-    path: '/game/minesweeper/add',
+    path: 'http://localhost:8081/game/minesweeper/add',
     method: 'post',
     func: function(request, response) {
         // 浏览器发过来的数据我们一般称之为 form (表单)
@@ -15,7 +15,7 @@ var add = {
 }
 
 var all = {
-    path: '/game/minesweeper/all',
+    path: 'http://localhost:8081/game/minesweeper/all',
     method: 'get',
     func: function(request, response) {
         // 浏览器发过来的数据我们一般称之为 form (表单)

@@ -2,7 +2,7 @@ const comment = require('../model/comment')
 
 
 var all = {
-    path: '/api/comment/all',
+    path: 'http://localhost:8081/api/comment/all',
     method: 'get',
     func: function(request, response) {
         var comments = comment.all()
@@ -12,7 +12,7 @@ var all = {
 }
 
 var add = {
-    path: '/api/comment/add',
+    path: 'http://localhost:8081/api/comment/add',
     method: 'post',
     func: function(request, response) {
         // 浏览器发过来的数据我们一般称之为 form (表单)
