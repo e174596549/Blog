@@ -227,7 +227,7 @@
 6 column system
 3 sizes: sm md lg
 */
-            @media (min-width: 0px) {
+            @media (min-width: 0) {
                 .sm-l {
                     float: left;
                 }
@@ -379,7 +379,6 @@
             }
 
             /*# sourceMappingURL=style.css.map */
-
         </style>
     </head>
     <body>
@@ -440,20 +439,15 @@
                 <span class="green">03: Minesweeper</span><br>
                 <br>
                 <!-- audio player -->
-                <!-- <audio src="http://datashat.net/music_for_programming_47-abe_mangger.mp3" id="player">
-                    Your browser does not support the &lt;<span class="fuschia">audio</span>&gt; tag.<br><br>
-                </audio> -->
+                <!-- <audio src="http://datashat.net/music_for_programming_47-abe_mangger.mp3" id="player"> Your browser does not support the &lt;<span class="fuschia">audio</span>&gt; tag.<br><br> </audio> -->
                 <div class="playerControls noselect">
                     <pre class="grey" id="player_time"></pre>
                     <a class="grey active" id="player_playpause" href="/Minesweeper">[PLAY]</a>
-                    <!-- <pre class="grey" id="player_stop">[STOP]</pre>
-                    <pre class="grey" id="player_rew">[-30s]</pre>
-                    <pre class="grey" id="player_ffw">[+30s]</pre><br> -->
+                    <!-- <pre class="grey" id="player_stop">[STOP]</pre> <pre class="grey" id="player_rew">[-30s]</pre> <pre class="grey" id="player_ffw">[+30s]</pre><br> -->
                     <br>
                     <br>
                 </div>
-                <!-- <a href="http://datashat.net/music_for_programming_47-abe_mangger.mp3">music_for_programming_47-abe_mangger.mp3</a>
-                (259mb)<br> -->
+                <!-- <a href="http://datashat.net/music_for_programming_47-abe_mangger.mp3">music_for_programming_47-abe_mangger.mp3</a> (259mb)<br> -->
                 <div id="id-minesweeper-rank" class="multi-column"></div>
                 <br>
                 <span class="grey oneliner">
@@ -497,9 +491,7 @@
                 <br>
                 <a href="https://github.com/e174596549/" class="purple-link">[GitHub]</a>
                 <a href="https://twitter.com/LY6819" class="purple-link">[Twitter]</a>
-                <!-- <a href="img/folder.jpg" class="purple-link">[folder.jpg]</a>
-                <a href="rss.php" class="purple-link">[RSS]</a>
-                <a href="monokai_datashat_edit.tmTheme" class="purple-link">[SublimeText.tmTheme]</a> -->
+                <!-- <a href="img/folder.jpg" class="purple-link">[folder.jpg]</a> <a href="rss.php" class="purple-link">[RSS]</a> <a href="monokai_datashat_edit.tmTheme" class="purple-link">[SublimeText.tmTheme]</a> -->
                 <br>
                 <a href="http://weibo.com/ly68198096" class="blue-link">[WeiBo]</a>
                 <a href="https://www.zhihu.com/people/liu-yuan-39-9/activities" class="blue-link">[ZhiHu]</a>
@@ -518,7 +510,7 @@
                 // var form = {     title: "测试标题",     author: "leo",     content: "测试内容", }
                 var request = {
                     method: 'get',
-                    url: 'http://123.206.211.237:8081/game/minesweeper/all',
+                    url: '/game/minesweeper/all',
                     contentType: 'application/json',
                     callback: function (response) {
                         //console.log('响应', response)
