@@ -1,0 +1,24 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "## [刘源的个人主页](http://140.143.200.171:8081/blog)",
+  "main": "appBlog.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e174596549/Blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/e174596549/Blog/issues"
+  },
+  "homepage": "https://github.com/e174596549/Blog#readme"
+}
