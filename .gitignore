@@ -1,0 +1,12 @@
+/config.json
+/process.json
+src/test/mocha_config.js
+
+*.iml
+*.log
+/.idea
+/.vscode
+/.history
+*.exe
+*.7z
+
